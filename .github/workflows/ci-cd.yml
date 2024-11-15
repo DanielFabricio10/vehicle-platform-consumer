@@ -33,10 +33,14 @@ jobs:
       - name: Install dependencies
         run: |
           # Instala dependências dentro do contêiner
-           docker-compose run --rm app-consumer npm ci
-           docker-compose run --rm app-consumer npm install supertest --save-dev
-           docker-compose run --rm app-comsumer npm install axios --save
-  
+          docker-compose run --rm app-consumer npm ci
+
+      - name: Install additional packages
+        run: |
+          # Instala pacotes adicionais como supertest e axios dentro do contêiner
+          docker-compose run --rm app-consumer npm install supertest --save-dev
+          docker-compose run --rm app-consumer npm install axios --save
+
       - name: Run tests inside the container
         run: |
           # Executa os testes dentro do contêiner da aplicação
