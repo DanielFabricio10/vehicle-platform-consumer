@@ -12,4 +12,8 @@ RUN npm install
 # Copiar o restante do código
 COPY . .
 
+RUN chmod +x node_modules/.bin/jest
+
+EXPOSE 5000
+
 CMD ["npm", "start"]
