@@ -34,6 +34,7 @@ jobs:
         run: |
           # Instala dependências dentro do contêiner
            docker-compose run --rm app-consumer npm ci
+           docker-compose run --rm app-consumer npm install supertest --save-dev
   
       - name: Run tests inside the container
         run: |
