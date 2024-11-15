@@ -1,0 +1,24 @@
+services:
+  app-consumer:
+    build: .
+    command: npm start
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/usr/app
+    networks:
+      - mynetwork
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/app
+    command: npm test
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    external: true
