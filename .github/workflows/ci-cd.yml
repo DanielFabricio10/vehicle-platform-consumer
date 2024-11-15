@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: |
           # Instala dependências dentro do contêiner
-           docker-compose run --rm app-consumer npm install
+           docker-compose run --rm app-consumer npm ci
   
       - name: Run tests inside the container
         run: |
