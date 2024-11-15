@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "8562b746-ac11-499a-bd7d-0cae780578cc",
+		"name": "Plataforma-veiculos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11555414"
+	},
+	"item": [
+		{
+			"name": "Cadastro Veiculos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\": \"Chevrolet\",\n    \"modelo\": \"Onix\",\n    \"ano\": 2015,\n    \"cor\": \"Preto\",\n    \"preco\": 35000,\n    \"renavam\": \"11122233444\",\n    \"placa\": \"XXX1368\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/vehicles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualiza Veiculo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\": \"Ford\",\n    \"modelo\": \"Fiesta\",\n    \"ano\": 2014,\n    \"cor\": \"Branco\",\n    \"preco\": 4000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/vehicles/11122233444",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"vehicles",
+						"11122233444"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista Veiculos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/vehicles?status=disponível&order=desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "disponível"
+						},
+						{
+							"key": "order",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Realiza uma venda",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"cpfCnpj\": \"89756342205\",\r\n  \"nomeCliente\": \"Daniel Silva\",\r\n  \"renavam\": \"11122233300\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/sales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualiza venda",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/sales/update-status/{id_payment}/{status}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"sales",
+						"update-status",
+						"{id_payment}",
+						"{status}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
